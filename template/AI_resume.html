@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Vishal</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 40px auto;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .left {
+      background: #0078d7;
+      color: #fff;
+      padding: 30px;
+    }
+    .right {
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+        font-weight: bold;
+        padding:15px 0px 15px 0px;
+        margin:0px 40px 0px 40px;
+        border-radius: 30px;
+        background-color: white;
+        color: blue;
+        box-shadow:2px 2px 10px black; 
+        
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 20px;
+      border-left: 5px solid #0078d7;
+      padding-left: 10px;
+      color: #0078d7;
+    }
+    .left h2 {
+      border-left: 5px solid #fff;
+      color: #fff;
+    }
+    .field {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+    .field strong {
+      display: inline-block;
+      min-width: 130px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 5px 0;
+    }
+    ul li {
+      background: rgba(255,255,255,0.15);
+      margin: 6px 0;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .right ul li {
+      background: #eef4ff;
+      color: #333;
+    }
+   .img{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+   }
+   #img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+   }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    
+    
+    <!-- LEFT COLUMN -->
+    <div class="left">
+      {% for e in re4%}
+     <div id="img"><img class="img" src="{{e.img.url}}" ></div>
+        {% endfor %}
+      <h1>{{a.first_name}} {{a.last_name}}</h1>
+      
+      <!-- Personal Info -->
+      <h2> Personal Information</h2>
+      
+      <div class="field"><strong>Contact:</strong>{{a.contact}}</div>
+      <div class="field"><strong>Email:</strong>{{a.email}}</div>
+      <div class="field"><strong>Location:</strong> {{a.location}}</div>
+      <div class="field"><strong>LinkedIn:</strong> {{a.linkedin}}</div>
+      <div class="field"><strong>DOB:</strong> {{a.dob}}</div>
+
+      <!-- Skills -->
+      <h2> Skills</h2>
+      <div class="field"><strong>Hard Skills:</strong></div>
+      {% for b in re1%}
+      <ul>
+        <li>{{b.hard_skill}}</li>
+      </ul>
+      <div class="field"><strong>Soft Skills:</strong></div>
+      <ul>
+        <li>{{b.soft_skill}}</li>
+      </ul>
+      {% endfor %}
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right">
+      <!-- Objective -->
+      <h2> Objective</h2>
+      
+      <p>>{{a.objective}}</p>
+
+      <!-- Education -->
+      
+      <h2> Educational Information</h2>
+      {% for c in re2%}
+      <div class="field"><strong>Degree:</strong> {{c.degree_name}}</div>
+      <div class="field"><strong>Institution Name:</strong> {{c.inst_name}}</div>
+      <div class="field"><strong>Location:</strong> {{c.location}}</div>
+      <div class="field"><strong>Graduation Date:</strong> {{c.g_date}}</div>
+        {% endfor %}
+        <!-- if -->
+{% for f in re5%}
+      <div class="field"><strong>School Name:</strong>{{f.school}}</div>
+      <div class="field"><strong>10th Percentage:</strong> {{f.percent_10}}</div>
+      <div class="field"><strong>12th Percentage:</strong> {{f.percent_12}}</div>
+      <div class="field"><strong>Location:</strong>{{f.location}}</div> 
+        {% endfor %}
+    
+      <!-- Experience -->
+       {% if d != NULL %}
+      <h2> Experience</h2>
+      {% for d in re3%}
+      <div class="field"><strong>Job Title:</strong> {{d.job_title}}</div>
+      <div class="field"><strong>Company:</strong> {{d.comp_name}}</div>
+      <div class="field"><strong>Achievement:</strong> {{d.achievement}}</div>
+      <div class="field"><strong>Joining:</strong>{{d.doj}}</div>
+      <div class="field"><strong>Leaving:</strong>{{d.dol}}</div>
+  {% endfor %}
+  {% endif %}
+      <!-- Other Info -->
+       {% for e in re4%}
+      <h2> Other Information</h2>
+      <div class="field"><strong>Project:</strong> {{e.projects}}</div>
+      <div class="field"><strong>Certification:</strong> {{e.certificate}}</div>
+      <div class="field"><strong>Hobby:</strong>{{e.hobby}}</div>
+      <div class="field"><strong>Ability:</strong>{{e.ability}}</div>
+      <div class="field"><strong> Achievement:</strong>{{e.achievements}}</div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'bootstrap5.css' %}">
+    <link rel="stylesheet" href="{% static 'r_page2.css' %}">
+<link rel="stylesheet" href="{% static 'https://unpkg.com/aos@next/dist/aos.css' %}" />
+</head>
+<body>
+    <form action="{% url 'skill' %}" method="post">
+        {% csrf_token %}
+    <div class="container2 container-fluid align-content-center">
+    
+    <div class="row">
+        <div id="head" class="col-md-4 offset-md-4 col-sm-6 offset-sm-4" data-aos="fade-right" data-aos-duration="1500">Skills Informations</div>
+        <div class="col-md-4 offset-md-4 col-sm-4 offset-sm-4">
+        
+        <div class="form-group">
+            
+            <input type="text" class="form-control form-control-md input1" required name="hard">
+            <label class="label">Hard Skills</label>
+            <small>(eg. Python, Sql, Machine learning, etc.)</small>
+            
+            </div>
+            
+           <div class="form-group">
+            
+            <input type="text" class="form-control form-control-md input1" required name="soft">
+            <label class="label">Soft Skills</label>
+            <small>(eg. Leadership, Problem-solving, Communication, etc.)</small>
+            
+            </div>
+            
+           
+                <button class="btn btn-primary offset-md-8 offset-sm-10 offset-lg-9 offset-xxl-10" type="submit" data-aos="fade-left" data-aos-duration="1500">Submit</button>
+        </div>
+        
+        
+        
+        </div>
+    
+    
+    
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+        offset:2,
+    });
+      
+     
+   
+  </script>
+    </form>
+    </body>

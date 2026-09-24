@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'ug_pg.css' %}">
+  <title>Education Form</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+<form action="{% url 'ug_pg' %}" method="get"></form>
+    <h1>Are you an Undergraduate or a Graduate?</h1>
+    <div class="button-group">
+
+<form action="{% url 'ug_page' %}" method="get">
+      <button class="undergrad-btn" type="submit">Undergraduate</button>
+</form>
+
+<form action="{% url 'pg_page' %}" method="get">
+      <button class="grad-btn" type="submit">Graduate</button>
+</form>
+
+    </div>
+    
+  </div>
+</body>
+</html>
