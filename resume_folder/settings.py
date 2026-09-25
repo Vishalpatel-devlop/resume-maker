@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 """
 Django settings for resume_folder project.
 
@@ -20,7 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yfh_+!s=%tz6d%w^vu!r(*@hj@=16dh#s1nc-&&k89@*qfzkx+'
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY',
+    'django-insecure-local-development-key'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
