@@ -19,7 +19,9 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from resume_maker.views import *#here we imported all views functions
+from django.views.generic import RedirectView
 urlpatterns = [
+    path('',RedirectView.as_view(url='/personal',permanent=False)),
     path('admin/', admin.site.urls),
     path('personal/', personal, name="personal"),
     path('skill/', skill, name="skill"),
